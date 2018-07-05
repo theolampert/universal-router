@@ -5,10 +5,11 @@
 
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import React from 'react/addons';
+import React from 'react';
+import TestUtils from 'react-dom/test-utils';
+import CreateRenderer from 'react-test-renderer/shallow';
 import Router from '../src/Router';
 
-const TestUtils = React.addons.TestUtils;
 
 describe('Routing', () => {
 
@@ -97,7 +98,7 @@ describe('Routing', () => {
   });
 
   it('test', async () => {
-    const renderer = TestUtils.createRenderer();
+    const renderer = new CreateRenderer();
     const router = new Router(on => {
       on('/', {start: true}, async () => {
         "use strict";
